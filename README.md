@@ -29,3 +29,5 @@
 El **Análisis de Sentimientos (*Sentiment Analysis*)** es una subdisciplina del Procesamiento del Lenguaje Natural (NLP) que permite identificar automáticamente la polaridad emocional detras de un texto.
 
 Inspirado en estudios clásicos de clasificación sobre conjuntos de datos de IMDb, este proyecto adapta y optimiza algoritmos de Machine Learning para procesar un corpus de **8,603 críticas de usuarios en castellano** provenientes del sitio web **FilmAffinity**.
+
+[ Reseña en Texto Plano ] ➡️ [ Preprocesamiento NLP ] ➡️ [ Vectorización TF-IDF/Binary ] ➡️ [ Clasificador Binario ] ➡️ [ 1: Positivo / 0: Negativo ]
