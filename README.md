@@ -30,4 +30,111 @@ El **Análisis de Sentimientos (*Sentiment Analysis*)** es una subdisciplina del
 
 Inspirado en estudios clásicos de clasificación sobre conjuntos de datos de IMDb, este proyecto adapta y optimiza algoritmos de Machine Learning para procesar un corpus de **8,603 críticas de usuarios en castellano** provenientes del sitio web **FilmAffinity**.
 
-[ Reseña en Texto Plano ] ➡️ [ Preprocesamiento NLP ] ➡️ [ Vectorización TF-IDF/Binary ] ➡️ [ Clasificador Binario ] ➡️ [ 1: Positivo / 0: Negativo ]
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## 🚨 Situación Problemática
+
+* **Incertidumbre en la Elección:** Las salas de cine y las plataformas de streaming enfrentan el reto de recomendar contenido adecuado. Los espectadores se guían por reseñas masivas en redes sociales y foros, pero la sobreinformación dificulta identificar la recepción real de una película.
+* **Falta de Feedback Estructurado:** Las productoras audiovisuales reciben miles de comentarios desestructurados, perdiendo la oportunidad de extraer métricas cuantitativas sobre qué elementos (guión, actuaciones, dirección) agradaron o desagradaron al público.
+
+---
+
+## 🎯 Objetivos del Proyecto
+
+* **Objetivo Principal:** Desarrollar un sistema inteligente para reconocer y clasificar automáticamente críticas y reseñas de películas en lenguaje castellano en categorías binarias (Positivo / Negativo).
+* **Objetivos Específicos:**
+  1. Construir un pipeline de preprocesamiento de texto (*Stopwords*, *Stemming*, *Tokenización*).
+  2. Implementar esquemas de vectorización y representación de texto (*Bag of Words*, *TF-IDF*, *Binary Encoding*).
+  3. Entrenar y evaluar modelos supervisados de clasificación (Regresión Logística / Naive Bayes).
+
+---
+
+## 💡 En Qué Ayuda este Proyecto (Impacto de Negocio)
+
+1. **Optimización para Cines y Cadenas de Distribución:**
+   * Permite ajustar la cartelera y las estrategias de promoción en tiempo real según la respuesta emocional del público.
+2. **Feedback Automatizado para Productoras Cinematográficas:**
+   * Proporciona un panel analítico a los directores y productores sobre la recepción masiva de sus obras para mejorar futuras producciones.
+3. **Sistemas de Recomendación Personalizada:**
+   * Sirve como motor base para filtrar y recomendar películas a los usuarios en función de las críticas con sentimientos positivos.
+
+---
+
+## 🛠️ Arquitectura y Metodología KDD
+
+El proyecto se desarrolló siguiendo la metodología **KDD (*Knowledge Discovery in Databases*)**:
+
+
+
+
+
+
+
+
+
+
+1. **Selección de Datos:** Extracción de 8,603 críticas de FilmAffinity.
+2. **Preprocesamiento:** Eliminación de caracteres especiales, conversión a minúsculas, remoción de *stopwords* en español e impartición de *Stemming* (SnowballStemmer).
+3. **Transformación:** Representación matricial mediante `TfidfVectorizer` y matriz binaria con Keras.
+4. **Minería de Datos:** Entrenamiento supervisado dividiendo el dataset en 67% Train / 33% Test estratificado.
+5. **Evaluación:** Medición mediante Matriz de Confusión y prueba de predicción en tiempo real.
+
+---
+
+## 🔬 Preprocesamiento de Texto y NLP
+
+La limpieza profunda garantizó que solo las palabras con carga semántica aportaran al modelo:
+
+* **Tokenización:** Uso de `ToktokTokenizer` para segmentar palabras.
+* **Stopwords Removal:** Eliminación de palabras vacías en español (*de, la, que, el, en, a, etc.*) mediante NLTK.
+* **Stemming:** Reducción de palabras a su raíz canónica usando `SnowballStemmer("spanish")` (*ejemplo: "divertidísima", "divertido" ➡️ "divert"*).
+
+---
+
+## ⚙️ Modelado y Codificación
+
+| Parámetro / Componente | Configuración |
+| :--- | :--- |
+| **Dataset Total** | 8,603 críticas (3,920 Positivas / 4,683 Negativas) |
+| **Split de Datos** | 67% Entrenamiento (5,764) / 33% Prueba (2,839) |
+| **Vectorización** | TF-IDF (`max_features=20,000`) & Matrix Mode Binary |
+| **Algoritmo Base** | Regresión Logística / Naive Bayes (Teorema de Bayes) |
+| **Etiquetado** | `1`: Rating > 6 (Positivo) \| `0`: Rating ≤ 5 (Negativo) |
+
+---
+
+## 📊 Resultados y Evaluación
+
+El modelo es capaz de predecir la polaridad de oraciones complejas e inéditas con alta precisión:
+
+```python
+# Ejemplo de prueba en tiempo real:
+opinion = ["La película me desagrada"]
+X_prueba = tfidf.transform(opinion)
+best_clf.predict(X_prueba)
+
+# Output: array([0]) -> Clasificado como NEGATIVO
+
+## 🔗 Recursos y Enlaces del Proyecto
+📓 Notebook ejecutable en Google Colab: Ver Colab Notebook
+
+📊 Presentación del Proyecto en Google Slides: Ver Diapositivas PPTX
+
+🗃️ Dataset Original en Kaggle: Críticas Películas FilmAffinity en Español (Guardar como proyecto.csv)
+
+👤 Autor
+Desarrollado por Maykol Anthony Vargas Bringas
+
+Systems Engineer & Data Analyst
