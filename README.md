@@ -125,7 +125,7 @@ opinion = ["La película me desagrada"]
 X_prueba = tfidf.transform(opinion)
 best_clf.predict(X_prueba)
 
-# Output: array([0]) -> Clasificado como NEGATIVO
+# Output: array([0]) -> Clasificado como NEGATIVO```
 
 ## 🔗 Recursos y Enlaces del Proyecto
 📓 Notebook ejecutable en Google Colab: Ver Colab Notebook
