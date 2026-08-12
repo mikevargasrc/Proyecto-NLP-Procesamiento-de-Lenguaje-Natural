@@ -26,21 +26,38 @@
 
 ## 📌 Visión General y Justificación
 
-El **Análisis de Sentimientos (*Sentiment Analysis*)** es una subdisciplina del Procesamiento del Lenguaje Natural (NLP) que permite identificar automáticamente la polaridad emocional detras de un texto.
+El **Análisis de Sentimientos (*Sentiment Analysis*)** es una subdisciplina del Procesamiento del Lenguaje Natural (NLP) que permite identificar automáticamente la polaridad emocional detrás de un texto. Esta técnica permite clasificar si una opinión, reseña o comentario expresa una actitud **positiva**, **negativa** o **neutral** hacia un tema específico.
+
+### 🎯 Justificación del Proyecto
 
 Inspirado en estudios clásicos de clasificación sobre conjuntos de datos de IMDb, este proyecto adapta y optimiza algoritmos de Machine Learning para procesar un corpus de **8,603 críticas de usuarios en castellano** provenientes del sitio web **FilmAffinity**.
 
+### 🚀 Flujo de Procesamiento
 
-
-
-
-
-
-
-
-
-
-
+```
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                     │
+│   ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐                │
+│   │   Reseña en     │    │  Preprocesamiento│    │  Vectorización  │                │
+│   │   Texto Plano   │───▶│       NLP       │───▶│  TF-IDF/Binary  │                │
+│   └─────────────────┘    └─────────────────┘    └─────────────────┘                │
+│            │                      │                       │                        │
+│            ▼                      ▼                       ▼                        │
+│   ┌─────────────────────────────────────────────────────────────────┐               │
+│   │                                                                 │               │
+│   │              Clasificador Binario (ML)                          │               │
+│   │                                                                 │               │
+│   └─────────────────────────────────────────────────────────────────┘               │
+│                              │                                                      │
+│                              ▼                                                      │
+│   ┌─────────────────────────────────────────────────────────────────┐               │
+│   │                                                                 │               │
+│   │              1: Positivo  /  0: Negativo                        │               │
+│   │                                                                 │               │
+│   └─────────────────────────────────────────────────────────────────┘               │
+│                                                                                     │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -74,16 +91,25 @@ Inspirado en estudios clásicos de clasificación sobre conjuntos de datos de IM
 
 ## 🛠️ Arquitectura y Metodología KDD
 
-El proyecto se desarrolló siguiendo la metodología **KDD (*Knowledge Discovery in Databases*)**:
+El proyecto se desarrolló siguiendo la metodología **KDD (*Knowledge Discovery in Databases*)**, un proceso iterativo e interactivo para la extracción de conocimiento a partir de grandes volúmenes de datos.
 
+### 📊 Diagrama de Flujo KDD
 
-
-
-
-
-
-
-
+```
++------------------+     +--------------------+     +-------------------+     +------------------+     +-------------------+
+|  1. Selección    | --> | 2. Preprocesamiento| --> | 3. Transformación | --> | 4. Minería de    | --> | 5. Evaluación e   |
+|     de Datos     |     |     y Limpieza     |     |    y Vectorización|     |    Datos (ML)    |     |    Interpretación |
++------------------+     +--------------------+     +-------------------+     +------------------+     +-------------------+
+         |                        |                         |                     |                     |
+         ▼                        ▼                         ▼                     ▼                     ▼
++------------------+     +--------------------+     +-------------------+     +------------------+     +-------------------+
+| • Carga de CSV   |     | • Eliminación de   |     | • Tokenización    |     | • Entrenamiento   |     | • Matriz de       |
+| • Exploración    |     |   caracteres       |     | • Stemming        |     |   de Modelos      |     |   Confusión       |
+|   inicial        |     |   especiales       |     | • Stopwords       |     | • GridSearch CV   |     | • Accuracy        |
+| • Identificación |     | • Normalización    |     | • TF-IDF          |     | • Regresión       |     | • Interpretación  |
+|   de columnas    |     |   de texto         |     |   Vectorización   |     |   Logística       |     |   de Features     |
++------------------+     +--------------------+     +-------------------+     +------------------+     +-------------------+
+```
 
 1. **Selección de Datos:** Extracción de 8,603 críticas de FilmAffinity.
 2. **Preprocesamiento:** Eliminación de caracteres especiales, conversión a minúsculas, remoción de *stopwords* en español e impartición de *Stemming* (SnowballStemmer).
