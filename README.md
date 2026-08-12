@@ -1,4 +1,4 @@
-# 🎬 Sistema Inteligente para la Clasificación de Críticas de Películas (NLP & Sentiment Analysis)
+# 🎬 Sistema Inteligente para la Clasificación de Críticas de Películas (NLP & Análisis de Sentimiento)
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![NLTK](https://img.shields.io/badge/NLTK-NLP-green?style=for-the-badge)](https://www.nltk.org/)
