@@ -125,16 +125,20 @@ opinion = ["La película me desagrada"]
 X_prueba = tfidf.transform(opinion)
 best_clf.predict(X_prueba)
 
-# Output: array([0]) -> Clasificado como NEGATIVO```
+# Output: array([0]) -> Clasificado como NEGATIVO
+```
+
+---
 
 ## 🔗 Recursos y Enlaces del Proyecto
-📓 Notebook ejecutable en Google Colab: Ver Colab Notebook
 
-📊 Presentación del Proyecto en Google Slides: Ver Diapositivas PPTX
+* 📓 **Notebook ejecutable en Google Colab:** [Ver Colab Notebook](https://colab.research.google.com/drive/1SngWKXuVj2WZjuavWiYEUIkd4pFeo025?usp=sharing)
+* 📊 **Presentación del Proyecto en Google Slides:** [Ver Diapositivas PPTX](https://docs.google.com/presentation/d/1ZPTA1cxhn6ut32QMvqB7DP2ej_Izg5MuyAykTkewTbU/edit?usp=sharing)
+* 🗃️ **Dataset Original en Kaggle:** [Críticas Películas FilmAffinity en Español](https://www.kaggle.com/datasets/ricardomoya/criticas-peliculas-filmaffinity-en-espaniol) *(Guardar como `proyecto.csv`)*
 
-🗃️ Dataset Original en Kaggle: Críticas Películas FilmAffinity en Español (Guardar como proyecto.csv)
+---
 
-👤 Autor
-Desarrollado por Maykol Anthony Vargas Bringas
+## 👤 Autor
 
-Systems Engineer & Data Analyst
+Desarrollado por **Maykol Anthony Vargas Bringas**  
+*Systems Engineer & Data Analyst*
